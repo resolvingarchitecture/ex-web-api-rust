@@ -20,10 +20,29 @@ fn index() -> &'static str {
 
 #[get("/peer/<id>")]              // <- route attribute
 fn peer(id: String) -> JsonValue {  // <- request handler
-    let peer = format!("{}", id.as_str());
+    let id = format!("{}", id.as_str());
     json!({
-        "peer": peer
+        "id": id,
+        "name": "Matt"
     })
+}
+
+/// Search the contact database by first and last name (last being optional)
+#[get("/contact/search?<first>&<last>")]
+fn contact_search(first: String, last: Option<String>) -> JsonValue {
+    let first_name = format!("{}", first.as_str());
+    let last_name = last.map(|last| format!("{}", last))
+        .unwrap_or_else(|| "_".into());
+    if String::from("_").eq(&last_name) {
+        json!({
+            "first": first_name
+        })
+    } else {
+        json!({
+            "first": first_name,
+            "last": last_name
+        })
+    }
 }
 
 fn main() {
@@ -31,6 +50,6 @@ fn main() {
     info!("Example Web API in Rust starting up...");
     rocket::ignite()
         .mount("/", StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/public")))
-        .mount("/api", routes![index,peer])
+        .mount("/api", routes![index,peer,contact_search])
         .launch();
 }
