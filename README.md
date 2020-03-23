@@ -4,8 +4,6 @@ Uses Rust and Rocket to create a back-end web api.
 
 [Crates.io](https://crates.io/crates/ex-web-api-rust)
 
-!! WIP - not stable until version 1.0 !!
-
 ## Documentation used to build example
 
 * https://rocket.rs/v0.4/guide/overview/
