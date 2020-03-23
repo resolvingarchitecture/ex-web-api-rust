@@ -6,5 +6,12 @@ Uses Rust and Rocket to create a back-end web api.
 
 !! WIP - not stable until version 1.0 !!
 
+## Documentation used to build example
+
+* https://rocket.rs/v0.4/guide/overview/
+* https://rocket.rs/v0.4/guide/requests/
+* https://api.rocket.rs/v0.4/rocket_contrib/index.html
+* https://api.rocket.rs/v0.4/rocket_contrib/serve/index.html
+* https://api.rocket.rs/v0.4/rocket_contrib/json/index.html
 
    
