@@ -1,6 +1,6 @@
 [package]
 name = "ex-web-api-rust"
-version = "0.0.1"
+version = "0.1.0"
 authors = ["Brian Taylor <brian@resolvingarchitecture.io>"]
 license-file = "LICENSE"
 edition = "2018"
@@ -16,3 +16,10 @@ keywords = ["web","web-app","rocket"]
 [dependencies]
 log = "0.4.8"
 simple_logger = "1.6.0"
+
+rocket = "0.4.4"
+
+[dependencies.rocket_contrib]
+version = "0.4.4"
+default-features = false
+features = ["serve","json"]
